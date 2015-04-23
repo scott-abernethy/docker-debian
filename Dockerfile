@@ -1,7 +1,7 @@
 # Dockerfile for scottabernethy/debian
 FROM debian:jessie
 
-# Install and setup project dependencies
+# Install base tools
 RUN apt-get update && apt-get -y install \
 	curl \
 	git \
