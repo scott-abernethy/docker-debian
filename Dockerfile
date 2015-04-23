@@ -1,6 +1,9 @@
 # Dockerfile for scottabernethy/debian
 FROM debian:jessie
 
+RUN echo "deb http://http.debian.net/debian testing contrib" \
+	>> /etc/apt/sources.list
+
 # Install base tools
 RUN apt-get update && apt-get -y install \
 	curl \
