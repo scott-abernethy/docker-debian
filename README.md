@@ -1,2 +1,7 @@
 A minimal Debian Jessie base image.
-Includes base tools, locale, and a service working directory.
+Sets the locale to C.UTF-8 and includes extra tools:
+* curl
+* [gosu](https://github.com/tianon/gosu)
+* htop
+* unzip
+* vim-tiny
