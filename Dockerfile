@@ -1,5 +1,5 @@
 # Dockerfile for scottabernethy/debian
-FROM debian:jessie
+FROM debian:wheezy
 
 # Install base tools (previously had installed git, htop, man, software-properties-common, wget)
 RUN apt-get update && apt-get -y install \
