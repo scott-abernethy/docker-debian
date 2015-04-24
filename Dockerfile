@@ -1,20 +1,12 @@
 # Dockerfile for scottabernethy/debian
 FROM debian:jessie
 
-RUN echo "deb http://http.debian.net/debian testing contrib" \
-	>> /etc/apt/sources.list
-
-# Install base tools
+# Install base tools (previously had installed git, htop, man, software-properties-common, wget)
 RUN apt-get update && apt-get -y install \
 	curl \
-	git \
-	htop \
 	locales \
-	man \
-	software-properties-common \
 	unzip \
 	vim-tiny \
-	wget \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Set the locale
