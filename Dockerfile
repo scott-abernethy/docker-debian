@@ -1,13 +1,12 @@
 # Dockerfile for scottabernethy/debian
 FROM debian:jessie
 
-# Install base tools (previously had installed git, man, software-properties-common, wget)
+# Install base tools (previously had installed git, htop, man, software-properties-common, wget)
 RUN \
 	apt-get update && \
 	apt-get install -y --no-install-recommends \
 		ca-certificates \
 		curl \
-		htop \
 		locales \
 		unzip \
 		vim-tiny \
@@ -16,11 +15,8 @@ RUN \
 
 # Install gosu for easy step-down from root
 RUN \
-	gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 && \
-	curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" && \
-	curl -o /usr/local/bin/gosu.asc -SL "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture).asc" && \
-	gpg --verify /usr/local/bin/gosu.asc && \
-	rm /usr/local/bin/gosu.asc && \
+	curl -o /usr/local/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.4/gosu-amd64" && \
+	echo "6f3a72f474cafacb3c7b4a7397a1f37d82fcc27b596cbb66e4ea0a8ee92eee76  /usr/local/bin/gosu" | sha256sum -c && \
 	chmod +x /usr/local/bin/gosu
 
 # Set the locale
