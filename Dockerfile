@@ -1,6 +1,8 @@
 # Dockerfile for scottabernethy/debian
 FROM debian:jessie
 
+MAINTAINER Scott Abernethy <scott@pixietwin.com>
+
 # Install base tools (previously had installed git, htop, man, software-properties-common, wget)
 RUN \
 	apt-get update && \
